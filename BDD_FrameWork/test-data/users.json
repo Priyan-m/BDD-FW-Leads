@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "username": "democsr",
+      "password": "crmsfa",
+      "firstName": "Test1",
+      "lastName": "User1",
+      "companyName": "Testleaf"
+    },
+    {
+      "username": "democsr2",
+      "password": "crmsfa",
+      "firstName": "Test",
+      "lastName": "User2",
+      "companyName": "Qeagle"
+    }
+  ]
+}
