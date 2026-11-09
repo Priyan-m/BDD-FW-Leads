@@ -10,6 +10,9 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: BDD_FrameWork
 
     steps:
     - uses: actions/checkout@v4
@@ -25,7 +28,7 @@ jobs:
       run: npx playwright install --with-deps chromium
 
     - name: Run Cucumber tests
-      run: npx cucumber-js --profile chrome
+      run: npm test -- --profile chrome
       env:
         HEADLESS: 'true'
         BASE_URL: ${{ vars.BASE_URL }}
@@ -37,5 +40,5 @@ jobs:
       if: ${{ !cancelled() }}
       with:
         name: cucumber-reports
-        path: reports/
+        path: BDD_FrameWork/reports/
         retention-days: 30
