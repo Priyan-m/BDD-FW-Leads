@@ -1,4 +1,6 @@
 import { Then, When } from "@cucumber/cucumber";
+import { expect } from "@playwright/test";
+import { DEFAULT_TIMEOUT } from "../config/config";
 import { PlaywrightWrapper } from "../utils/wrapper";
 
 const getWrapper = (world: any) => new PlaywrightWrapper(world.page, world.context);
@@ -248,10 +250,9 @@ Then('Verify duplicate lead creation form is displayed', async function () {
 
 Then('Verify no records to display', async function () {
   const wrapper = getWrapper(this);
-  const message = await wrapper.page.locator('.x-paging-info').innerText();
-  if (!message.includes('No records to display')) {
-    throw new Error(`Expected no records message but found "${message}"`);
-  }
+  await expect(wrapper.page.locator('.x-paging-info')).toContainText('No records to display', {
+    timeout: DEFAULT_TIMEOUT
+  });
 });
 
 Then('Verify that the title contains {string} after lead is created', async function (PageTitle: string) {
