@@ -50,6 +50,13 @@ npm run test:chrome  or npx cucumber-js -p chrome
 npm run test:firefox or npx cucumber-js -p firefox
 npm run test:webkit  or npx cucumber-js -p webkit
 ```
+
+Run the local-page lead-results regression scenarios (no Leaftaps connection required):
+
+```bash
+npm test -- --profile chrome tests/lead-results.feature --require "tests/steps/**/*.ts"
+```
+
 run parallel execution
 
 ```bash
